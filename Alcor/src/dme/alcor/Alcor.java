@@ -41,7 +41,7 @@ public class Alcor extends JFrame implements ActionListener {
 	
 	static String meses[] = new String[12]; 
 	static String anos[] = new String[100];
-	static String [] tituloData = { "Data", "Iluminação", "Fase" };
+	static String [] tituloData = { "Data", "Iluminaï¿½ï¿½o", "Fase" };
 	static String [][] data_tabela;
 	static JTable tabela;
 	JScrollPane scrollPane;
@@ -57,13 +57,13 @@ public class Alcor extends JFrame implements ActionListener {
 	
 	String about = "<html>" +
 			"       <h3>Alcor</h3><hr>" +
-			"       <p>Calcula a percentagem de iluminação da Lua<br>" +
+			"       <p>Calcula a percentagem de iluminaï¿½ï¿½o da Lua<br>" +
 			"       para uma determinada data.</p>" +
-			"       <p>O algoritmo de Conway é utilizado<br>" +
-			"       para o cálculo, portanto a precisão é<br>" +
+			"       <p>O algoritmo de Conway ï¿½ utilizado<br>" +
+			"       para o cï¿½lculo, portanto a precisï¿½o ï¿½<br>" +
 			"       baixa.</p>" +
 			"       <hr>" +
-			"       </<html>";
+			"       </html>";
 	
 	private static final long serialVersionUID = -1148257910792573725L;
 
@@ -81,7 +81,7 @@ public class Alcor extends JFrame implements ActionListener {
          */
 		
 		menu_bar = new JMenuBar();
-		menu = new JMenu("Opções");
+		menu = new JMenu("Opï¿½ï¿½es");
 		item_op1 = new JMenuItem("Sobre");
 		item_op1.addActionListener(this);
 		menu.add(item_op1);
@@ -112,7 +112,7 @@ public class Alcor extends JFrame implements ActionListener {
 		
 		meses[0] = "Janeiro";
 		meses[1] = "Fevereiro";
-		meses[2] = "Março";
+		meses[2] = "Marï¿½o";
 		meses[3] = "Abril";
 		meses[4] = "Maio";
 		meses[5] = "Junho";
@@ -151,7 +151,7 @@ public class Alcor extends JFrame implements ActionListener {
 		
 		sul = new JPanel( new GridLayout(2,4) );
 			
-		bt_mostrar = new JButton("Mostrar Mês");
+		bt_mostrar = new JButton("Mostrar Mï¿½s");
 		bt_mostrar.addActionListener(this);
 		bt_mostrar.setBackground(new Color(0xfdfdf8 ));
 		sul.add(bt_mostrar);
@@ -159,12 +159,12 @@ public class Alcor extends JFrame implements ActionListener {
 		lb = new JLabel("");
 		sul.add(lb);
 		
-		bt_anterior = new JButton("Mês Anterior");
+		bt_anterior = new JButton("Mï¿½s Anterior");
 		bt_anterior.addActionListener(this);
 		bt_anterior.setBackground(new Color(0xfdfdf8 ));
 		sul.add(bt_anterior);
 		
-		bt_proximo = new JButton("Próximo Mês");
+		bt_proximo = new JButton("Prï¿½ximo Mï¿½s");
 		bt_proximo.addActionListener(this);
 		bt_proximo.setBackground(new Color(0xfdfdf8 ));
 		sul.add(bt_proximo);
@@ -322,7 +322,7 @@ public class Alcor extends JFrame implements ActionListener {
 		       double age_per=0.0;
 		       double res=0.0;
 		       
-		       /* Conversão para percentagem  */
+		       /* Conversï¿½o para percentagem  */
 		       age_per = ( (age) / 14 )* 100;
 		       if(age>=15){
 		           age = 29 - age;
