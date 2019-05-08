@@ -27,14 +27,12 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 public class Alcor extends JFrame implements ActionListener {
 
-	JMenuBar menu_bar;
-	JMenu menu;
-	JMenuItem item_op1, item_op2;
+
 
 	JPanel north, center, south;
 	JLabel lb;
-	static JComboBox<String> ch_month;
-	static JComboBox<String> ch_year;
+	JComboBox<String> ch_month;
+	JComboBox<String> ch_year;
 
 	JButton bt_show, bt_previous, bt_next, bt_exit, bt_reset, bt_crescent;
 
@@ -48,28 +46,16 @@ public class Alcor extends JFrame implements ActionListener {
 	static DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 	static Date data = new Date();
 	static String now = df.format(data);
+	
+	private MoonPhase moonPhase;
+	
 
 	int i=0;
 	int k=0;
 
 	static boolean crescent = true;
 
-	String about = "<html>" +
-			"       <h3>Alcor</h3><hr>" +
-			"       <p>Calculates the illuminated percentage of the Moon<br>" +
-			"       for a given date.</p>" +
-			"       <p>The Conway algorithm is used for<br>" +
-			"       the calculation so precision is not very high.<br>" +
-			"       <hr>" +
-			"       <p>This was my first App writen in Java and with a<br>" +
-			"       GUI. I made it because, well, some people like to know<br>" +
-			"       when the Moon is crescent and I also like the Moon.</p>" +
-			"       <hr>" +
-			"       <p>On Github:<br>" +
-			"       <a href=\"https://github.com/dvdme/alcor\">https://github.com/dvdme/alcor</a></p>" +
-			"       <p>The code is available under the terms of the<br>" +
-			"       <a href=\"http://www.eclipse.org/legal/epl-v10.html\">Eclipse Public License</a><br></p>" +
-			"       </html>";
+
 
 	private static final long serialVersionUID = 1L;
 
@@ -86,20 +72,8 @@ public class Alcor extends JFrame implements ActionListener {
 		catch (UnsupportedLookAndFeelException e1) {};
 
 
-		menu_bar = new JMenuBar();
-		menu = new JMenu("Options");
-		item_op1 = new JMenuItem("About");
-		item_op1.addActionListener(this);
-		menu.add(item_op1);
-
-		menu.addSeparator();
-
-		item_op2 = new JMenuItem("Exit");
-		item_op2.addActionListener(this);
-		menu.add(item_op2);
-
-		menu_bar.add(menu);
-		setJMenuBar(menu_bar);
+		
+		setJMenuBar(new AlcorMenuBar());
 
 		north = new JPanel( new GridLayout(2,3) );
 
@@ -197,6 +171,7 @@ public class Alcor extends JFrame implements ActionListener {
 
 		getContentPane().add(south, BorderLayout.SOUTH);
 
+		moonPhase = new MoonPhase(data);
 		reset();
 		showOut( Integer.parseInt( years[ch_year.getSelectedIndex()] ), (ch_month.getSelectedIndex()) );
 
@@ -208,14 +183,10 @@ public class Alcor extends JFrame implements ActionListener {
 
 	public void actionPerformed(ActionEvent e){
 
-		if( e.getSource() == item_op1 ){
-
-			JOptionPane.showMessageDialog(this, about, "Sobre este programa", JOptionPane.INFORMATION_MESSAGE);
-		}
-
-		if( e.getSource() == bt_exit || e.getSource() == item_op2 ){
+		if (e.getSource() == bt_exit) {
 			System.exit(0);
 		}
+		
 		if ( e.getSource() == bt_show ){
 
 			showOut( Integer.parseInt( years[ch_year.getSelectedIndex()] ), (ch_month.getSelectedIndex()) );
@@ -357,7 +328,7 @@ public class Alcor extends JFrame implements ActionListener {
 		return name;
 	}
 
-	static public void reset(){
+	public void reset(){
 
 		String month = now.substring(3,5);
 		String year = now.substring(6);
