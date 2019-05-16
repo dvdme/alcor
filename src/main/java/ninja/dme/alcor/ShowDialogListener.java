@@ -1,4 +1,4 @@
-package ninja.dme;
+package ninja.dme.alcor;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

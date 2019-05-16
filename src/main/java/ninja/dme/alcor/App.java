@@ -1,4 +1,4 @@
-package ninja.dme;
+package ninja.dme.alcor;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -25,7 +25,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-public class Alcor extends JFrame implements ActionListener {
+public class App extends JFrame implements ActionListener {
 
 	JLabel lb;
 	JComboBox<String> ch_month;
@@ -56,7 +56,7 @@ public class Alcor extends JFrame implements ActionListener {
 	private AlcorCenterPanel center;
 	private AlcorSouthPanel south;
 
-	public Alcor() {
+	public App() {
 
 		super("Alcor");
 
@@ -363,7 +363,7 @@ public class Alcor extends JFrame implements ActionListener {
 		SwingUtilities.invokeLater(new Runnable() {
 
 			public void run() {
-				Alcor app = new Alcor();
+				App app = new App();
 				app.setVisible(true);
 			}
 		});

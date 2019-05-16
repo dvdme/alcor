@@ -1,4 +1,4 @@
-package ninja.dme;
+package ninja.dme.alcor;
 
 import java.awt.Color;
 import java.awt.GridLayout;
