@@ -1,4 +1,4 @@
-package dme.alcor;
+package ninja.dme;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 public class AlcorMenuBar extends JMenuBar implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
+	
 	private final String about = "<html>" + "       <h3>Alcor</h3><hr>"
 			+ "       <p>Calculates the illuminated percentage of the Moon<br>" + "       for a given date.</p>"
 			+ "       <p>The Conway algorithm is used for<br>"

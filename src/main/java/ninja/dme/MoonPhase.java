@@ -1,4 +1,4 @@
-package dme.alcor;
+package ninja.dme;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -55,11 +55,15 @@ public class MoonPhase {
 			return phaseForWanning();
 		}
 	}
+	public String ping() {
+		return "pong";
+	}
 
 	private void setDate(int year, int month, int day) {
 		this.year = year;
 		this.month = month;
 		this.day = day;
+		this.date = new Date();
 		calculate();
 	}
 
